@@ -1,8 +1,8 @@
 listen: :20443
 
 tls:
-  cert: /etc/ssl/private/fullchain.cer
-  key: /etc/ssl/private/private.key
+  cert: /etc/hysteria/fullchain.cer
+  key: /etc/hysteria/private.key
 
 quic:
   initStreamReceiveWindow: 16777216
