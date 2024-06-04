@@ -1,23 +1,21 @@
-listen: :443
+listen: :20443
 
 tls:
-  cert: /root/fullchain.cer
-  key: /root/private.key
+  cert: /etc/ssl/private/fullchain.cer
+  key: /etc/ssl/private/private.key
 
-bandwidth:
-  up: 100 mbps
-  down: 20 mbps
+quic:
+  initStreamReceiveWindow: 16777216
+  maxStreamReceiveWindow: 16777216
+  initConnReceiveWindow: 33554432
+  maxConnReceiveWindow: 33554432
 
 auth:
   type: password
-  password: chika
+  password: 78465922
 
-resolver:
-  type: https
-  https:
-    addr: 1.1.1.1:443
-    timeout: 10s
-
-acl:
-  inline: 
-    - reject(all, udp/443)
+masquerade:
+  type: proxy
+  proxy:
+    url: https://en.snu.ac.kr
+    rewriteHost: true
